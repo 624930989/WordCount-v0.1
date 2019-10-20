@@ -1,12 +1,12 @@
 # WordCount-v0.1
-##introduce:<br>
+## introduce:
 这是一段关于提取文本后，对文本内字符、句子、单词、注释句、空行、代码行统计的代码<br>
-##use:<br>
+## use:
 在Python IDLE上运行这段代码，输入相应命令得到不同统计功能：<br>
 命令模式： wc.exe [参数] [文件名]<br>
 例：wc.exe -c file.txt 统计字符数<br>
 -c：字符数； -w：单词数 ；-sen：句子数 ；-e：注释行数 ；-n：空行数 ；-d行数：代码。<br>
-##example
+## example
 data.txt：<br>
 Chinese President Xi Jinping on Wednesday met with former New Zealand Prime Minister John Key at the Great Hall of the People in Beijing.<br>
 ***123<br>
