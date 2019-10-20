@@ -1,4 +1,4 @@
-# WordCount-v0.1
+# WordCount-v0.3
 ## introduce:
 这是一段关于提取文本后，对文本内字符、句子、单词、注释句、空行、代码行统计的代码<br>
 ## use:
