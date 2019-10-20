@@ -42,6 +42,16 @@ def count():
                 if file_line == b'':
                     count = count + 1
             print('文件%s总共有%d行空行' % (file_dirs, count))
+        if b == '-d':
+            filename = open(file_dirs,'rb')        #以只读方式打开文件   
+            file_lines = filename.readlines()
+            for file_line in file_lines:
+                file_line = file_line.strip()
+                if file_line == b'' or file_line.startswith(b'*'):
+                    count = count
+                else :
+                    count = count +1
+            print('文件%s总共有%d行代码行' % (file_dirs, count))
 if __name__ == '__main__' :
     count()
 
