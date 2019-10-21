@@ -1,0 +1,77 @@
+import unittest
+class Count(object):
+    def __init__(self, com, do, name):
+        self.com = com
+        self.do = do
+        self.name = name
+    def countnum(self):
+        countt = 0
+        if self.com == 'wc.exe':
+            if self.do == '-c' :
+                filename = open(self.name,'r')        
+                file_contents = filename.read()       
+                for file_content in file_contents:   
+                    if(file_content == '\n' or file_content == ' '):
+                        countt=countt
+                    else:
+                        countt += 1
+            if self.com == '-w' :
+                filename = open(self.name,'r')
+                file_contents= filename.read()
+                words = file_contents.split()
+                num_words = len(words)
+                countt = str(num_words)
+            if self.com == '-sen' :
+                filename = open(self.name,'r')
+                file_contents = filename.read()       
+                for file_content in file_contents:    
+                    if file_content == ','or file_content == '.':
+                        countt += 1
+            if self.com == '-e' :
+                filename = open(self.name,'rb')
+                file_contents = filename.readlines()
+                for file_line in file_contents:    
+                    file_line = file_line.strip()
+                    if file_line.startswith(b'*'):
+                        countt = countt + 1
+            if self.com == '-n':
+                filename = open(self.name,'rb')        
+                file_lines = filename.readlines()
+                for file_line in file_lines:    
+                    file_line = file_line.strip()
+                    if file_line == b'':
+                        countt = countt + 1
+            if self.com =='-d':
+                filename = open(self.name,'rb')       
+                file_lines = filename.readlines()
+                for file_line in file_lines:
+                    file_line = file_line.strip()
+                    if file_line == b'' or file_line.startswith(b'*'):
+                        countt = countt
+                    else :
+                        countt = countt +1           
+        return countt
+
+class CountTxt(unittest.TestCase):
+    def test_c(self):
+        text1 = Count('wc.exe' ,'-c' ,'data.txt')
+        self.assertEqual(text1.countnum ,392)
+    def test_w(self):
+        text1 = Count('wc.exe' ,'-w' ,'data.txt')
+        self.assertEqual(text1.countnum ,79)
+    def test_c(self):
+        text1 = Count('wc.exe' ,'-sen' ,'data.txt')
+        self.assertEqual(text1.countnum ,6)
+    def test_w(self):
+        text1 = Count('wc.exe' ,'-e' ,'data.txt')
+        self.assertEqual(text1.countnum ,2)
+    def test_c(self):
+        text1 = Count('wc.exe' ,'-n' ,'data.txt')
+        self.assertEqual(text1.countnum ,0)
+    def test_w(self):
+        text1 = Count('wc.exe' ,'-d' ,'data.txt')
+        self.assertEqual(text1.countnum ,3)
+
+        
+if __name__ == '__main__':
+    unittest.main()
