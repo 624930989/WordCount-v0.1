@@ -6,7 +6,7 @@ def count():
         if b == '-c' :
             filename = open(file_dirs,'r')        #以只读方式打开文件
             file_contents = filename.read()       #读取文档内容到file_contents
-            for file_content in file_contents:    #统计文件内容中换行符的数目
+            for file_content in file_contents:   
                 if(file_content == '\n' or file_content == ' '):
                     continue
                 else:
@@ -20,8 +20,8 @@ def count():
             print('文件%s总共有' % (file_dirs) + str(num_words) + '个单词')
         if b == '-sen' :
             filename = open(file_dirs,'r')
-            file_contents = filename.read()       #读取文档内容到file_contents
-            for file_content in file_contents:    #统计文件内容中换行符的数目
+            file_contents = filename.read()    
+            for file_content in file_contents:  
                 if file_content == ','or file_content == '.':
                     count += 1
             print('文件%s总共有%d个句子' % (file_dirs, count))
@@ -29,21 +29,21 @@ def count():
         if b == '-e' : 
             filename = open(file_dirs,'rb')
             file_contents = filename.readlines()
-            for file_line in file_contents:    #统计文件内容中换行符的数目
+            for file_line in file_contents:   
                 file_line = file_line.strip()
                 if file_line.startswith(b'*'):
                     count = count + 1
             print('文件%s总共有%d行注释行' % (file_dirs, count))
         if b == '-n' :
-            filename = open(file_dirs,'rb')        #以只读方式打开文件   
+            filename = open(file_dirs,'rb')      
             file_lines = filename.readlines()
-            for file_line in file_lines:    #统计文件内容中换行符的数目
+            for file_line in file_lines: 
                 file_line = file_line.strip()
                 if file_line == b'':
                     count = count + 1
             print('文件%s总共有%d行空行' % (file_dirs, count))
         if b == '-d':
-            filename = open(file_dirs,'rb')        #以只读方式打开文件   
+            filename = open(file_dirs,'rb')     
             file_lines = filename.readlines()
             for file_line in file_lines:
                 file_line = file_line.strip()
